@@ -1,10 +1,7 @@
 package com.newton.aaw.hr.service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -42,7 +39,8 @@ public class UserService {
 		existing.setPassword(u.getPassword());
 		existing.setEmail(u.getEmail());
 		existing.setMobile(u.getMobile());
-		
+		existing.setStatus(u.getStatus());
+		existing.setRole(u.getRole());
 		existing.setModifiedAt(LocalDateTime.now());
 
 		userRepository.save(existing);

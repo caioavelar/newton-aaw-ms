@@ -13,6 +13,8 @@ Content-Type: application/json
     "password": "5d3307f4-50d2-4420-9ea0-96544d1a7bdb",
     "email": "john.doe@newtonpaiva.br",
     "mobile": "+55.31.991234567"
+    "status": "ACTIVE",
+    "role": "ADMIN",
 }
 
 ### PUT update user
@@ -23,8 +25,52 @@ Content-Type: application/json
     "name": "John Doe Jr",
     "password": "5d3307f4-50d2-4420-9ea0-96544d1a7bdb",
     "email": "john.doe.jr@newtonpaiva.br",
-    "mobile": "+55.31.991233210"
+    "mobile": "+55.31.991233210",
+    "status": "INACTIVE",
+    "role": "READ",
 }
 
 ### DELETE
 DELETE http://localhost:8080/users/1
+
+
+###Testes Employee
+### GET
+GET http://localhost:8080/employees
+
+### GET with invalid ID
+GET http://localhost:8080/employees/1
+
+### POST new User
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+  "firstName": "Caio",
+  "lastName": "Avelar",
+  "dateOfBirth": "",
+  "gender": "MASC",
+  "position": "Developer",
+  "monthlySalary": "12000",
+  "hourSalary": "100",
+  "area": "IT"
+}
+	
+
+### PUT update user
+PUT http://localhost:8080/employees/1
+Content-Type: application/json
+
+{
+    "firstName": "Caio Jr",
+    "lastName": "Júnior",
+    "dateOfBirth": "",
+    "gender": "MASC",
+    "position": "Developer Jr",
+    "monthlySalary": "120",
+    "hourSalary": "1",
+    "area": "IT"
+}
+
+### DELETE
+DELETE http://localhost:8080/employees/1

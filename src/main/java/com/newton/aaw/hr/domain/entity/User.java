@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 
 import com.newton.aaw.hr.api.UserDto;
-import com.newton.aaw.hr.domain.entity.enums.Role;
-import com.newton.aaw.hr.domain.entity.enums.Status;
+import com.newton.aaw.hr.domain.enums.UserRole;
+import com.newton.aaw.hr.domain.enums.UserStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,9 +30,9 @@ public class User {
 	
 	private String mobile;
 	
-	private Status status;
-	
-	private Role role;
+	private UserStatus status;
+
+	private UserRole role;	
 	
 	private LocalDateTime createdAt;
 	

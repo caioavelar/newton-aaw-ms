@@ -1,4 +1,4 @@
-package com.newton.aaw.hr.domain.entity.enums;
+package com.newton.aaw.hr.domain.enums;
 
 public enum Status {
 	INACTIVE, ACTIVE, BLOCKED;

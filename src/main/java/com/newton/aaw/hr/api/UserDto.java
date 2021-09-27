@@ -3,8 +3,8 @@ package com.newton.aaw.hr.api;
 import java.time.LocalDateTime;
 
 import com.newton.aaw.hr.domain.entity.User;
-import com.newton.aaw.hr.domain.entity.enums.Role;
-import com.newton.aaw.hr.domain.entity.enums.Status;
+import com.newton.aaw.hr.domain.enums.UserRole;
+import com.newton.aaw.hr.domain.enums.UserStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,9 +27,9 @@ public class UserDto {
 	
 	private String mobile;
 	
-	private Status status;
-	
-	private Role role;
+	private UserStatus status;
+
+	private UserRole role;		
 	
 	private LocalDateTime createdAt;
 	
@@ -44,6 +44,7 @@ public class UserDto {
 		this.mobile = u.getMobile();
 		this.status = u.getStatus();
 		this.role = u.getRole();
+		
 		this.createdAt = u.getCreatedAt();
 		this.modifiedAt = u.getModifiedAt();
 	}

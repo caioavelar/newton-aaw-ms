@@ -17,14 +17,13 @@ import com.newton.aaw.hr.api.EmployeeDto;
 import com.newton.aaw.hr.domain.entity.Employee;
 import com.newton.aaw.hr.service.EmployeeService;
 
+import lombok.AllArgsConstructor;
+
 @RestController
+@AllArgsConstructor
 public class EmployeeController {
 
 	private final EmployeeService employeeService;
-	
-	public EmployeeController(EmployeeService employeeService) {
-		this.employeeService = employeeService;
-	}
 	
 	@GetMapping("/employees/{id}")
 	public EmployeeDto getById(@PathVariable String id) {
@@ -47,18 +46,18 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/employees")
-	public EmployeeDto create(@RequestBody EmployeeDto u) {
-		var employee = new Employee(u);
+	public EmployeeDto create(@RequestBody EmployeeDto employeeDto) {
+		var employee = new Employee(employeeDto);
 		
 		employee = employeeService.create(employee);
 		
 		return new EmployeeDto(employee);
 	}
-	
-	@PutMapping("/employees/{id}")
-	public EmployeeDto update(@PathVariable String id, @RequestBody EmployeeDto u) {
-		var employee = new Employee(u);
 
+	@PutMapping("/employees/{id}")
+	public EmployeeDto create(@PathVariable String id, @RequestBody EmployeeDto employeeDto) {
+		var employee = new Employee(employeeDto);
+		
 		employee = employeeService.update(id, employee);
 		
 		return new EmployeeDto(employee);
@@ -69,5 +68,5 @@ public class EmployeeController {
 		employeeService.delete(id);
 		
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-	}
+	}	
 }
